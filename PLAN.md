@@ -45,7 +45,8 @@
 
 ## Active Task
 
-> **Task 18 - Render deployment support** is complete.
+> **Documentation task - frontend API hand note** is complete.
+> Expanded `FRONTEND_API_HANDNOTE.md` into a fuller frontend integration guide with endpoint-by-endpoint request guidance, response examples, error notes, field behavior notes, and common workflows based on the current codebase.
 > No further active build steps remain in the current plan.
 
 ---
@@ -743,6 +744,7 @@
 
 ## Completed Tasks
 
+- `frontend API hand note` — created and expanded `FRONTEND_API_HANDNOTE.md` covering all current `/api/v1/` endpoints, auth requirements, path params, query params, request bodies, response patterns, field behavior notes, common errors, and frontend workflows on 2026-03-19.
 - `accounts` — custom user model, JWT auth endpoints, permissions, migrations, and tests completed on 2026-03-19.
 - `batches` — batch model, filterable CRUD API, intern list action scaffold, migrations, and tests completed on 2026-03-19.
 - `interns` — profile and registration workflow models, services, CRUD endpoints, migrations, and tests completed on 2026-03-19.
