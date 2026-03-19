@@ -57,11 +57,15 @@ internova-backend-api/
 ├── apps/
 ├── common/
 ├── config/
+├── .env.example
 ├── AGENTS.md
+├── build.sh
 ├── CONTEXT.md
+├── FRONTEND_API_HANDNOTE.md
 ├── MEMORY.md
 ├── PLAN.md
 ├── README.md
+├── render.yaml
 ├── SCHEMA.md
 ├── SKILLS.md
 ├── STANDARDS.md
@@ -409,6 +413,7 @@ For deeper project detail, refer to:
 
 - `AGENTS.md` for agent workflow and hard-stop rules
 - `CONTEXT.md` for project overview, endpoint coverage, and business rules
+- `FRONTEND_API_HANDNOTE.md` for frontend-facing API integration details including endpoints, params, queries, request bodies, response notes, and workflows
 - `SCHEMA.md` for database structure and model expectations
 - `STANDARDS.md` for coding conventions and architecture rules
 - `PLAN.md` for build progress and task tracking
