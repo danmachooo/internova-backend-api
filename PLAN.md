@@ -38,12 +38,14 @@
 | 14 | seed_dev | `[x]` |
 | 15 | deployment / prod config | `[x]` |
 | 16 | post-review hardening fixes | `[x]` |
+| 17 | README documentation | `[x]` |
+| 18 | Render deployment support | `[x]` |
 
 ---
 
 ## Active Task
 
-> **Task 16 - post-review hardening fixes** is complete.
+> **Task 18 - Render deployment support** is complete.
 > No further active build steps remain in the current plan.
 
 ---
@@ -661,6 +663,81 @@
 - Updated weekly attendance summary validation to reject malformed `week_start` values with a 400 response and converted assessment-attempt uniqueness races into a stable validation error.
 - Hardened production settings so `ALLOWED_HOSTS`, `CORS_ALLOWED_ORIGINS`, and `CSRF_TRUSTED_ORIGINS` must be non-empty in production.
 - Verified with `python manage.py test apps.accounts --verbosity=2`, `python manage.py test apps.interns --verbosity=2`, `python manage.py test apps.attendance --verbosity=2`, `python manage.py test apps.assessments --verbosity=2`, and `python manage.py check --deploy --settings=config.settings.prod`.
+
+---
+
+## 17. README documentation
+
+**Depends on:** completed implementation and deployment config
+**Provides:** top-level project onboarding and deployment guide
+
+### Summary Checklist
+- [x] README created
+- [x] Local setup documented
+- [x] Environment variables documented
+- [x] Production deployment guidance documented
+- [x] Internal docs references added
+- [x] PLAN.md updated
+
+### Detailed Steps
+
+- [x] **17.1** Create top-level `README.md`
+  - Project overview
+  - Audience and internal-use note
+  - Local setup
+  - Environment configuration
+  - Development commands
+  - Production deployment guidance
+  - References to internal docs
+
+- [x] **17.2** Update PLAN.md
+
+**Notes:**
+- Added a full top-level `README.md` covering project overview, internal-use note, local setup, environment variables, development commands, production deployment guidance, and references to the internal documentation set.
+- Documented a recommended local workflow using `venv`, `pip install -r requirements.txt`, `.env` copied from `.env.example`, migrations, `seed_dev`, and `runserver`.
+
+---
+
+## 18. Render deployment support
+
+**Depends on:** completed implementation, production settings, and README
+**Provides:** Render-ready runtime, static serving, and deployment configuration
+
+### Summary Checklist
+- [x] Render runtime dependencies added
+- [x] Static serving configured for Render
+- [x] Build and startup commands documented in repo
+- [x] Render blueprint/config added
+- [x] Render deployment guidance documented
+- [x] Verified
+
+### Detailed Steps
+
+- [x] **18.1** Add Render runtime dependencies
+  - Add `gunicorn`
+  - Add `whitenoise`
+
+- [x] **18.2** Configure static serving for production
+  - Add WhiteNoise middleware
+  - Use WhiteNoise staticfiles storage in production
+
+- [x] **18.3** Add Render build/start config
+  - Add `build.sh`
+  - Add `render.yaml`
+
+- [x] **18.4** Update README with Render deployment guidance
+
+- [x] **18.5** Verify production config
+  - Run `python manage.py check --deploy --settings=config.settings.prod`
+
+- [x] **18.6** Update PLAN.md
+
+**Notes:**
+- Added `gunicorn` and `whitenoise` to `requirements.txt` for Render production runtime support.
+- Enabled WhiteNoise middleware in base settings and switched production staticfiles storage to `CompressedManifestStaticFilesStorage`.
+- Added `build.sh` and `render.yaml` so the repo includes Render-friendly build and startup commands.
+- Updated `README.md` with a Render deployment section covering required environment variables and Render host examples.
+- Verified production settings with `python manage.py check --deploy --settings=config.settings.prod`; the only remaining warning is `security.W021` when `SECURE_HSTS_PRELOAD` is intentionally set to `False`.
 
 ---
 
